@@ -43,3 +43,13 @@ The above Command will output:
      ##          ##       ##    ##
    #######  ######   ######    ##
 ```
+Usage with Colors:
+``` shell
+>./PRINT_N <Text> <color>
+```
+Example:
+``` shell
+>./PRINT_N "hakam 1337" red
+```
+The above Command will output:
+[Imgur](https://i.imgur.com/UAaO3cn.png)
