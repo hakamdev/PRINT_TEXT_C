@@ -52,4 +52,4 @@ Example:
 >./PRINT_N "hakam 1337" red
 ```
 The above Command will output:
-[Imgur](https://i.imgur.com/UAaO3cn.png)
+![alt text](https://i.imgur.com/UAaO3cn.png)
