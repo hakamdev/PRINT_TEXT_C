@@ -1,6 +1,34 @@
 # PRINT_TEXT_C
 This is a program that prints the text you provide as an argument to the STDOUT; the text is colored!
 
+## Makefile
+Commads:
+
+``` shell
+> make
+```
+- creates the PRINT_N excutable + backup the files!
+
+``` shell
+> make NAME=<exec_name>
+> make NAME=PROGRAM
+```
+- creates the excutable with a custom name!
+
+``` shell
+> make backup
+```
+- backups the files for restore if changes are made to the code!
+
+``` shell
+> make restore
+```
+- restores the files to their original version if a backup is present!
+
+``` shell
+> make clean
+```
+- cleans up the executable!
 ## Usage
 For help page:
 ``` shell
