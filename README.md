@@ -75,5 +75,5 @@ Symbols:
 ## Supported Colors
 NB: Colors are CASE-INSENSITIVE; "red RED Red reD" :)
 ``` shell
->red green yellow blue cyan magenta
+> red green yellow blue cyan magenta
 ```
