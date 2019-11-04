@@ -77,4 +77,3 @@ NB: Colors are CASE-INSENSITIVE; "red RED Red reD" :)
 ``` shell
 >red green yellow blue cyan magenta
 ```
-<p style="background-color:blue;">ZBB</p>
