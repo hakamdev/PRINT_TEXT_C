@@ -6,7 +6,7 @@
 /*   By: ehakam <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 21:07:35 by ehakam            #+#    #+#             */
-/*   Updated: 2019/11/04 21:08:28 by ehakam           ###   ########.fr       */
+/*   Updated: 2019/11/04 21:14:03 by ehakam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,9 +86,10 @@ void	_print_word(char *word, char *color, int j)
 	{
 		if (_is_alphnum(word[i]))
 		{
-			_print(_get_line(word[i++], j));
+			_print(_get_line(word[i], j));
 			_print("  ");
 		}
+		i++;
 	}
 	_print("\n");
 }
