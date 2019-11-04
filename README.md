@@ -53,6 +53,7 @@ Example:
 ```
 The above Command will output:
 ![alt text](https://i.imgur.com/UAaO3cn.png)
+
 ## Supported Characters
 Lowecase Alphabets:
 ``` shell
@@ -70,3 +71,10 @@ Symbols:
 ``` shell
 > . - _ ! ?
 ```
+
+## Supported Colors
+NB: Colors are CASE-INSENSITIVE; "red RED Red reD" :)
+``` shell
+>red green yellow blue cyan magenta
+```
+<p style="background-color:blue;">ZBB</p>
