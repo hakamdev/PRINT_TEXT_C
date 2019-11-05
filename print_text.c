@@ -27,13 +27,19 @@ char	**ft_split(const char *str, char delim);
 void	_print_word(char *word, char *color, int j);
 
 /* 	Global Vars */
-char **A; char **F; char **K; char **O; char **S; char **W;
-char **B; char **G; char **L; char **P; char **T; char **X;
-char **C; char **H; char **M; char **Q; char **U; char **Y;
-char **D; char **I; char **N; char **R; char **V; char **Z;
-char **E; char **J; char **_0; char **_1; char **_2; char **_3;
-char **_4; char **_5; char **_6; char **_7; char **_8; char **_9;
-char **_dot; char **_excl; char **_interr; char **_hyfn; char **_uscore;
+
+#define N_TEXT (126 - 32) /* the first 32 ascii's char pannel are not anyway */
+#define LINE_PER_TEXT 5
+#define CHAR_PER_LINE 8
+
+/* The whole table costs less than 4ko of memory */
+char    lookup_table[N_TEXT][LINE_PER_TEXT][CHAR_PER_LINE] = {
+	[(int)'A'] = {
+		"   ##   ", "  ####  ",
+		"  #  #  ", "########",
+		"##    ##",
+	},
+};
 
 /* Main */
 int		main(int ac, char **av)
@@ -58,7 +64,7 @@ int		main(int ac, char **av)
 		lines = ft_split(str, ' ');
 		if (!lines)
 			return (1);
-		
+
 		while (lines[x])
 		{
 			while (j < 5)
@@ -79,7 +85,8 @@ int		main(int ac, char **av)
 
 void	_print_word(char *word, char *color, int j)
 {
-	char	i = 0;
+	size_t  i = 0;
+
 	_set_color(color);
 	_print("   ");
 	while (word[i])
@@ -97,93 +104,11 @@ void	_print_word(char *word, char *color, int j)
 char	*_get_line(char c, int li)
 {
 	_upper(&c);
-	switch (c)
+	if (c > 32 && c < N_TEXT)
 	{
-		case 'A':
-			return(A[li]);
-		case 'B':
-			return(B[li]);
-		case 'C':
-			return(C[li]);
-		case 'D':
-			return(D[li]);
-		case 'E':
-			return(E[li]);
-		case 'F':
-			return(F[li]);
-		case 'G':
-			return(G[li]);
-		case 'H':
-			return(H[li]);
-		case 'I':
-			return(I[li]);
-		case 'J':
-			return(J[li]);
-		case 'K':
-			return(K[li]);
-		case 'L':
-			return(L[li]);
-		case 'M':
-			return(M[li]);
-		case 'N':
-			return(N[li]);
-		case 'O':
-			return(O[li]);
-		case 'P':
-			return(P[li]);
-		case 'Q':
-			return(Q[li]);
-		case 'R':
-			return(R[li]);
-		case 'S':
-			return(S[li]);
-		case 'T':
-			return(T[li]);
-		case 'U':
-			return(U[li]);
-		case 'V':
-			return(V[li]);
-		case 'W':
-			return(W[li]);
-		case 'X':
-			return(X[li]);
-		case 'Y':
-			return(Y[li]);
-		case 'Z':
-			return(Z[li]);
-		case '0':
-			return(_0[li]);
-		case '1':
-			return(_1[li]);
-		case '2':
-			return(_2[li]);
-		case '3':
-			return(_3[li]);
-		case '4':
-			return(_4[li]);
-		case '5':
-			return(_5[li]);
-		case '6':
-			return(_6[li]);
-		case '7':
-			return(_7[li]);
-		case '8':
-			return(_8[li]);
-		case '9':
-			return(_9[li]);
-		case '.':
-			return(_dot[li]);
-		case '!':
-			return(_excl[li]);
-		case '?':
-			return(_interr[li]);
-		case '-':
-			return(_hyfn[li]);
-		case '_':
-			return(_uscore[li]);
-		default :
-			return(NULL);
+		return lookup_table[(int)c - 32][li];
 	}
+	return NULL;
 }
 
 void	_print(char *str)
@@ -626,5 +551,4 @@ void	_set_color(char *color)
 	{
 		printf("\033[0m");
 	}
-	
 }
